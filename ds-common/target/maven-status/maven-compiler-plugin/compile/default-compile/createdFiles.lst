@@ -1,0 +1,6 @@
+com\dslwpt\common\feign\user\UserServciceProvider.class
+com\dslwpt\common\domain\Order.class
+com\dslwpt\common\dubbo\OrderService.class
+com\dslwpt\common\dubbo\UserService.class
+com\dslwpt\common\domain\RemoteCallEntity.class
+com\dslwpt\common\domain\ABCD.class
