@@ -1,0 +1,12 @@
+.idea/
+*.iml
+target/
+ds-engineering/target/
+ds-engineering/.idea/
+ds-engineering/*.iml
+ds-common/target/
+ds-common/.idea/
+ds-common/*.iml
+ds-user/target/
+ds-user/.idea/
+ds-user/*.iml

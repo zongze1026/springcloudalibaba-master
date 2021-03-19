@@ -1,0 +1,62 @@
+
+server:
+  port: 8083
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.0.119:8848
+#        namespace: b318e94c-4fd8-41a2-971c-902eb474b24d
+      config:
+        server-addr: 192.168.0.119:8848
+  profiles:
+    active: dev
+
+
+logging:
+  level:
+    io.seata: error
+    com.dslwpt.user.mapper: debug
+mybatis:
+  mapper-locations: classpath*:/mapper/*.xml
+
+
+dubbo:
+  scan:
+    base-packages: com.dslwpt.user.service.impl
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: spring-cloud://192.168.0.119
+  cloud:
+    subscribed-services: "ds-engineering"
+  consumer:
+    check: false
+    timeout: 999999
+
+
+
+seata:
+  enabled: true
+  application-id: ${spring.application.name}
+  tx-service-group: my_test_tx_group
+  service:
+    vgroup-mapping:
+      my_test_tx_group: default
+  config:
+    type: nacos
+    nacos:
+      namespace:
+      serverAddr: 192.168.0.119:8848
+      group: SEATA_GROUP
+      userName: "nacos"
+      password: "nacos"
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 192.168.0.119:8848
+      userName: "nacos"
+      password: "nacos"
+
